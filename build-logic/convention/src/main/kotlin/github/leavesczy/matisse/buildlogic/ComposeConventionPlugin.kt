@@ -1,5 +1,7 @@
+package github.leavesczy.matisse.buildlogic
+
 import com.android.build.api.dsl.CommonExtension
-import github.leavesczy.matisse.configureCompose
+import github.leavesczy.matisse.buildlogic.config.configureCompose
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply

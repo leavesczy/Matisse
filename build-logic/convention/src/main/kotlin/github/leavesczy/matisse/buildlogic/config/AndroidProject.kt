@@ -1,4 +1,4 @@
-package github.leavesczy.matisse
+package github.leavesczy.matisse.buildlogic.config
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion
@@ -10,7 +10,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 internal fun Project.configureAndroidProject(commonExtension: CommonExtension) {
     commonExtension.apply {
         compileSdk {
-            version = release(version = androidCompileSdkVersion())
+            version = release(version = androidCompileSdkVersion()) {
+                minorApiLevel = androidCompileSdkMinorVersion()
+            }
         }
         buildToolsVersion = androidBuildToolsVersion()
         defaultConfig.apply {

@@ -1,4 +1,4 @@
-package github.leavesczy.matisse
+package github.leavesczy.matisse.buildlogic.config
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project
@@ -11,6 +11,8 @@ internal fun Project.configureCompose(commonExtension: CommonExtension) {
         buildFeatures.apply {
             compose = true
         }
+        // AGP 9.5+ Compose Preview runfiles require Android resources in unit tests.
+        testOptions.unitTests.isIncludeAndroidResources = true
         dependencies {
             val composeBom = libs.findLibrary("androidx-compose-bom").get()
             add("implementation", platform(composeBom))
@@ -22,7 +24,7 @@ internal fun Project.configureCompose(commonExtension: CommonExtension) {
     }
     tasks.withType<KotlinCompile>().configureEach {
         compilerOptions {
-            optIn.set(
+            optIn.addAll(
                 setOf(
                     "androidx.compose.foundation.layout.ExperimentalLayoutApi",
                     "com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi"

@@ -1,6 +1,8 @@
+package github.leavesczy.matisse.buildlogic
+
 import com.android.build.api.dsl.ApplicationExtension
-import github.leavesczy.matisse.configureAndroidApplication
-import github.leavesczy.matisse.configureAndroidProject
+import github.leavesczy.matisse.buildlogic.config.configureAndroidApplication
+import github.leavesczy.matisse.buildlogic.config.configureAndroidProject
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply

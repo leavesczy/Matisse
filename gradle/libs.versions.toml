@@ -4,6 +4,7 @@ app-version-code = "1"
 android-min-sdk = "23"
 android-target-sdk = "37"
 android-compile-sdk = "37"
+android-compile-sdk-minor = "2"
 android-build-tools = "37.0.0"
 
 android-plugin = "9.4.1"
@@ -38,7 +39,7 @@ maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publ
 
 app-android-application = { id = "app.android.application" }
 app-android-library = { id = "app.android.library" }
-app-android-compose = { id = "app.android.compose" }
+app-androidx-compose = { id = "app.androidx.compose" }
 app-kotlin-parcelize = { id = "app.kotlin.parcelize" }
 app-library-publish = { id = "app.library.publish" }
 

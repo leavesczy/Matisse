@@ -1,15 +1,12 @@
 plugins {
     alias(libs.plugins.app.android.library)
-    alias(libs.plugins.app.android.compose)
+    alias(libs.plugins.app.androidx.compose)
     alias(libs.plugins.app.kotlin.parcelize)
     alias(libs.plugins.app.library.publish)
 }
 
 android {
     namespace = "github.leavesczy.matisse"
-    defaultConfig {
-        consumerProguardFiles("consumer-rules.pro")
-    }
 }
 
 dependencies {

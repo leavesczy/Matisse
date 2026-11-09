@@ -1,5 +1,8 @@
+package github.leavesczy.matisse.buildlogic
+
 import com.android.build.api.dsl.LibraryExtension
-import github.leavesczy.matisse.configureAndroidProject
+import github.leavesczy.matisse.buildlogic.config.configureAndroidLibrary
+import github.leavesczy.matisse.buildlogic.config.configureAndroidProject
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
@@ -12,6 +15,7 @@ class LibraryConventionPlugin : Plugin<Project> {
             apply(plugin = "com.android.library")
             val libraryExtension = extensions.getByType<LibraryExtension>()
             configureAndroidProject(commonExtension = libraryExtension)
+            configureAndroidLibrary(libraryExtension = libraryExtension)
         }
     }
 

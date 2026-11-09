@@ -1,6 +1,8 @@
+package github.leavesczy.matisse.buildlogic
+
 import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
-import github.leavesczy.matisse.libs
+import github.leavesczy.matisse.buildlogic.config.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply

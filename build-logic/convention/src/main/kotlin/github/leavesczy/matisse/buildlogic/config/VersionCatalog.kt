@@ -1,4 +1,4 @@
-package github.leavesczy.matisse
+package github.leavesczy.matisse.buildlogic.config
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
@@ -16,6 +16,9 @@ internal fun Project.appVersionName(): String =
 
 internal fun Project.androidCompileSdkVersion(): Int =
     libs.findVersion("android-compile-sdk").get().requiredVersion.toInt()
+
+internal fun Project.androidCompileSdkMinorVersion(): Int =
+    libs.findVersion("android-compile-sdk-minor").get().requiredVersion.toInt()
 
 internal fun Project.androidTargetSdkVersion(): Int =
     libs.findVersion("android-target-sdk").get().requiredVersion.toInt()

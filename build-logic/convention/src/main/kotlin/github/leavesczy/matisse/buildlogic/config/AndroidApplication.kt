@@ -1,13 +1,10 @@
-package github.leavesczy.matisse
+package github.leavesczy.matisse.buildlogic.config
 
 import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.api.Project
 import org.gradle.api.plugins.BasePluginExtension
 import org.gradle.kotlin.dsl.getByType
 import java.io.File
-import java.time.ZoneId
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
 
 internal fun Project.configureAndroidApplication(applicationExtension: ApplicationExtension) {
     applicationExtension.apply {
@@ -23,10 +20,14 @@ internal fun Project.configureAndroidApplication(applicationExtension: Applicati
                 useSupportLibrary = true
             }
         }
-        val basePluginExtension = project.extensions.getByType<BasePluginExtension>()
-        basePluginExtension.apply {
-            archivesName.set("matisse_v${defaultConfig.versionName}_${defaultConfig.versionCode}_${getApkBuildTime()}")
+        val archiveTime = if (nonDebugPackageRequested()) {
+            "_${providers.of(ApkBuildTimeValueSource::class.java) {}.get()}"
+        } else {
+            ""
         }
+        project.extensions.getByType<BasePluginExtension>().archivesName.set(
+            "matisse_v${appVersionName()}_${appVersionCode()}$archiveTime"
+        )
         signingConfigs {
             create("release") {
                 storeFile = File(rootDir, "key.jks")
@@ -89,10 +90,4 @@ internal fun Project.configureAndroidApplication(applicationExtension: Applicati
             }
         }
     }
-}
-
-private fun getApkBuildTime(): String {
-    val now = ZonedDateTime.now(ZoneId.of("Asia/Shanghai"))
-    val formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss")
-    return now.format(formatter)
 }
