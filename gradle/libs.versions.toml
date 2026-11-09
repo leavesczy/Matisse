@@ -1,13 +1,13 @@
 [versions]
 app-version-name = "1.0.0"
 app-version-code = "1"
-android-min-sdk = "23"
+android-min-sdk = "24"
 android-target-sdk = "37"
 android-compile-sdk = "37"
 android-compile-sdk-minor = "2"
 android-build-tools = "37.0.0"
 
-android-plugin = "9.4.1"
+android-plugin = "9.5.1"
 kotlin-plugin = "2.4.21"
 maven-publish-plugin = "0.37.0"
 
@@ -17,7 +17,7 @@ androidx-appcompat = "1.8.0"
 androidx-activity = "1.13.0"
 androidx-lifecycle = "2.11.0"
 androidx-paging = "3.5.3"
-androidx-compose-bom = "2026.09.00"
+androidx-compose-bom = "2026.11.00"
 
 junit = "4.13.2"
 
@@ -55,7 +55,7 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "androidx-paging" }
 
-androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidx-compose-bom" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom-beta", version.ref = "androidx-compose-bom" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui" }
 androidx-compose-ui-util = { module = "androidx.compose.ui:ui-util" }
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
